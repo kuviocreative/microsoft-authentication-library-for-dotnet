@@ -21,7 +21,7 @@ namespace Microsoft.Identity.Client.Platforms.iOS
         public string GenerateCodeVerifier()
         {
             byte[] buffer = new byte[Constants.CodeVerifierByteSize];
-            using (RNGCryptoServiceProvider randomSource = new RNGCryptoServiceProvider())
+            using (RandomNumberGenerator randomSource = RandomNumberGenerator.Create())
             {
                 randomSource.GetBytes(buffer);
             }
